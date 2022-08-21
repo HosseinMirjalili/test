@@ -52,25 +52,4 @@ class Bot_site(ABC):
         return links
 
 
-bot1 = Bot_site()
-html1 = bot1.get_Html('https://www.irna.ir/archive?pl=2651')
-figures = bot1.get_Tags(html1 , 'figure')
-links = bot1.get_links_in_tag(figures)
 
-for link in links:
-    html = bot1.get_Html(link)
-    tag_time_date = bot1.get_Tag(html, 'div' , attrbiute={'class' : 'item-date'})
-    time_date = bot1.text_Tag(html, tag_time_date)
-    print(time_date)
-
-    tag_title = bot1.get_Tag(html ,'h1', attrbiute={'class' : 'title'})
-    title = bot1.text_Tag(html , tag_title)
-    print(title)
-
-    try:
-        tag_text = bot1.get_Tag(html,'div' , attrbiute={'class' : 'item-text'})
-        for p in tag_text:
-            print(bot1.text_Tag(html , p))
-        print('------------------------------------------------------------------------------------------------------------------------------')
-    except:
-        continue
