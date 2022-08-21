@@ -35,11 +35,11 @@ class Bot_site(ABC):
 
     @abstractproperty
     def get_tag_in_tag(self , list_tag , tag):
-        list1 = []
+        tags = []
         for i in list_tag:
             for a in i.find_all(tag):
                 list1.append(a)
-        return list1
+        return tags
 
     @abstractproperty
     def get_links_in_tag(self ,  list_tag):
